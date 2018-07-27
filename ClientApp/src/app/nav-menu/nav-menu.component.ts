@@ -20,7 +20,6 @@ export class NavMenuComponent {
   }
 
   logIn() {
-    alert("hello!");
     this.authService.login();
   }
 }
