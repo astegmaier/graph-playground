@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { GraphSdkService } from '../graph-sdk.service';
-import { GraphService } from '../graph.service';
+import { AuthService } from '../services/auth.service';
+import { GraphSdkService } from '../services/graph-sdk.service';
+import { GraphService } from '../services/graph.service';
 
 @Component({
   selector: 'app-home',
