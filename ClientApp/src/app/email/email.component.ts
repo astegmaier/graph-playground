@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Message, EmailAddress } from '@microsoft/microsoft-graph-types';
-import { Observable } from 'rxjs';
 import { GraphService } from '../services/graph.service';
 
 @Component({
@@ -9,11 +8,10 @@ import { GraphService } from '../services/graph.service';
 })
 export class EmailComponent {
 
-  public messages: Observable<Message[]>;
+  public messages: Message[];
   public columnsToDisplay = ['date','from','subject'];
   constructor( private graphService: GraphService) { 
-    this.messages = this.graphService.getMessages(10);
-    this.messages.subscribe();
+    this.graphService.getMessages(10).subscribe(messages => this.messages = messages);
   }
 
 }

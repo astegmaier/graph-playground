@@ -1,7 +1,9 @@
 <h1>Email</h1>
 <p>This demonstrates using the <a href="https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_messages">Graph API messages endpoint</a> to fetch email your inbox:</p>
 
-<table mat-table [dataSource]="messages" class="mat-elevation-z8">
+<mat-progress-bar *ngIf="!messages" mode="indeterminate"></mat-progress-bar>
+
+<table *ngIf="messages" mat-table [dataSource]="messages" class="mat-elevation-z8">
     <ng-container matColumnDef="date">
       <th mat-header-cell *matHeaderCellDef>Date</th>
       <td mat-cell *matCellDef="let element"> {{element.createdDateTime | date:'medium'}} </td>
