@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { User, Contact, Message, DriveItem } from '@microsoft/microsoft-graph-types';
 import { throwError } from 'rxjs';
-import { catchError, retry, map, filter } from 'rxjs/operators';
+import { catchError, retry, map } from 'rxjs/operators';
 
 interface oDataResponse<T> {
   '@odata.context': string,
@@ -57,7 +57,13 @@ export class GraphService {
     .pipe(
       retry(3),
       catchError(this.handleError),
-      map(response => response.value.filter(item => item.file.mimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
+      map(response => 
+        response.value
+          .filter(item => item.file.mimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+          .sort((a, b) => {
+            return new Date(b.lastModifiedDateTime).getTime() - new Date(a.lastModifiedDateTime).getTime() 
+          })
+      )
     );
   }
 
