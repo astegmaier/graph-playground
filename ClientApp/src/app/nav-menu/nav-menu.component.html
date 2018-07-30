@@ -17,19 +17,29 @@
                         <span class='glyphicon glyphicon-home'></span> Home
                     </a>
                 </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/counter"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-education'></span> Counter
+                <li *ngIf="isLoggedIn()" [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/contacts"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-user'></span> Contacts
                     </a>
                 </li>
-                <li [routerLinkActive]='["link-active"]'>
-                    <a [routerLink]='["/fetch-data"]' (click)='collapse()'>
-                        <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                <li *ngIf="isLoggedIn()" [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/email"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-inbox'></span> Email
                     </a>
                 </li>
-                <li>
+                <li *ngIf="isLoggedIn()" [routerLinkActive]='["link-active"]'>
+                    <a [routerLink]='["/workbooks"]' (click)='collapse()'>
+                        <span class='glyphicon glyphicon-th'></span> Workbooks
+                    </a>
+                </li>
+                <li *ngIf="!isLoggedIn()">
                     <a (click)='logIn()'>
                         <span class='glyphicon glyphicon-log-in'></span> Log In
+                    </a>
+                </li>
+                <li  *ngIf="isLoggedIn()">
+                    <a (click)='logOut()'>
+                        <span class='glyphicon glyphicon-log-out'></span> Log Out
                     </a>
                 </li>
             </ul>

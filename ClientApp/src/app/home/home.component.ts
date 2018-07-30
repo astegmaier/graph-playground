@@ -8,14 +8,7 @@ import { GraphService } from '../services/graph.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  constructor(private authService: AuthService, 
-    private graphSdkService: GraphSdkService, 
-    private graphService: GraphService) {}
-
-  getAuthToken() {
-    this.authService.getAuthenticationToken()
-      .then((token) => console.log('here is the auth token: ', token));
-  }
+  constructor(private graphSdkService: GraphSdkService, private graphService: GraphService) { }
 
   callGraphWithGraphClient() {
     this.graphSdkService.client
@@ -29,7 +22,6 @@ export class HomeComponent {
     this.graphService.getCurrentUser()
       .subscribe((user) => {
         console.log(user);
-        console.log(user.jobTitle);
       })
   }
 

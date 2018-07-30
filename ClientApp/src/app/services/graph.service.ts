@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { User } from '@microsoft/microsoft-graph-types';
+import { User, Contact, Message, DriveItem } from '@microsoft/microsoft-graph-types';
 import { throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, map, filter } from 'rxjs/operators';
+
+interface oDataResponse<T> {
+  '@odata.context': string,
+  '@odata.nextLink': string,
+  value: T
+}
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +23,42 @@ export class GraphService {
         retry(3),
         catchError(this.handleError)
       );
+  }
+
+  getContacts(top?: number) {
+    let url = `${this.base_url}/me/contacts`
+    if (top) {
+      url = url + `?$top=${top}`;
+    }
+    return this.http.get<oDataResponse<Contact[]>>(url)
+    .pipe(
+      retry(3),
+      catchError(this.handleError),
+      map(response => response.value)
+    );
+  }
+
+  getMessages(top?: number) {
+    let url = `${this.base_url}/me/messages`
+    if (top) {
+      url = url + `?$top=${top}`;
+    }
+    return this.http.get<oDataResponse<Message[]>>(url)
+    .pipe(
+      retry(3),
+      catchError(this.handleError),
+      map(response => response.value)
+    );
+  }
+
+  getRecentWorkbooks() {
+    let url = `${this.base_url}/me/drive/recent`
+    return this.http.get<oDataResponse<DriveItem[]>>(url)
+    .pipe(
+      retry(3),
+      catchError(this.handleError),
+      map(response => response.value.filter(item => item.file.mimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

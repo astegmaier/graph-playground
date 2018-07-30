@@ -11,7 +11,10 @@ export class AuthService {
   private graphScopes = [
     'User.Read',
     'User.ReadBasic.All',
-    'Mail.Send'
+    'Mail.Send',
+    'Contacts.ReadWrite',
+    'Files.ReadWrite',
+    'Mail.ReadWrite'
   ];
   private clientApplication: Msal.UserAgentApplication;
 
@@ -31,7 +34,7 @@ export class AuthService {
     this.clientApplication.logout();
   }
 
-  public isOnline(): boolean {
+  public isLoggedIn(): boolean {
     return this.clientApplication.getUser() != null;
   }
 
@@ -42,16 +45,16 @@ export class AuthService {
   public getAuthenticationToken(): Promise<string> {
     return this.clientApplication.acquireTokenSilent(this.graphScopes)
       .then(token => {
-        console.log('Got silent access token: ', token);
+        // console.log('Got silent access token: ', token);
         return token;
       }).catch(error => {
-        console.log('Could not silently retrieve token from storage.', error);
+        console.error('Could not silently retrieve token from storage.', error);
         return this.clientApplication.acquireTokenPopup(this.graphScopes)
           .then(token => {
-            console.log('Got popup access token: ', token);
+            // console.log('Got popup access token: ', token);
             return Promise.resolve(token);
           }).catch(innererror => {
-            console.log('Could not retrieve token from popup.', innererror);
+            console.error('Could not retrieve token from popup.', innererror);
             return Promise.resolve('');
           });
       });
