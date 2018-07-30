@@ -1,7 +1,7 @@
 <h1>Contacts</h1>
 <p>This demonstrates using the <a href="https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_contacts">Graph API Contacts Endpoint</a> to fetch your top 10 contacts:</p>
 
-<table mat-table [dataSource]="contacts">
+<table mat-table [dataSource]="contacts" class="mat-elevation-z8">
   <ng-container matColumnDef="givenName">
     <th mat-header-cell *matHeaderCellDef>First Name</th>
     <td mat-cell *matCellDef="let element"> {{element.givenName}} </td>

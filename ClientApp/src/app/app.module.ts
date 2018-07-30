@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatProgressBarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -29,6 +29,7 @@ import { WorkbooksComponent } from './workbooks/workbooks.component';
     FormsModule,
     BrowserAnimationsModule,
     MatTableModule,
+    MatProgressBarModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'contacts', component: ContactsComponent },
