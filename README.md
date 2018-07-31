@@ -21,7 +21,7 @@ Prerequisites: [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.co
     ```
     git clone https://github.com/astegmaier/graph-playground.git
     ```
-2. Go to the `ClientApp` folder and restore the client-side packages:
+2. Restore the npm packages:
     ```
     yarn install
     ``` 
