@@ -14,7 +14,7 @@ export class EmailComponent {
     this.graphService.getMessages(10).subscribe(messages => this.messages = messages);
   }
 
-  public static getFromEmail(message: Message): string {
+  public getFromEmail(message: Message): string {
     if (message.from && message.from.emailAddress && message.from.emailAddress.address) {
       return message.from.emailAddress.address
     } else {
