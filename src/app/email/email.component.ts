@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Message, EmailAddress } from '@microsoft/microsoft-graph-types';
+import { Message } from '@microsoft/microsoft-graph-types';
 import { GraphService } from '../services/graph.service';
 
 @Component({

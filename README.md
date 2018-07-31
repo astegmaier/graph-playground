@@ -1,7 +1,10 @@
 # Microsoft Graph Playground
 
-You can use this app to experiment with the [Microsoft Graph API](https://developer.microsoft.com/graph). It is based on the [Angular CLI](https://cli.angular.io/), with the [Angular Material Table Component](https://material.angular.io/components/table/overview) and some structure stolen from the [Angular + ASP.NET Core Template](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular). It uses [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) to authenticate against both consumer and business accounts.
+You can use this app to experiment with the [Microsoft Graph API](https://developer.microsoft.com/graph) in the context of a modern web app. It is hosted at https://graphplayground.z22.web.core.windows.net/. 
 
+## Architecture
+
+The app is based on the [Angular CLI](https://cli.angular.io/), with the [Angular Material Table Component](https://material.angular.io/components/table/overview) and some structure stolen from the [Angular + ASP.NET Core Template](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular). It uses [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) to authenticate against both consumer and business accounts.
 
 There are two ways that it can make calls to the graph:
 
@@ -32,3 +35,5 @@ Prerequisites: [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.co
     ng serve
     ```
     This will use the Angular CLI development server to host the site at http://localhost:4200.
+
+This will allow you to tweak the app locally and experiment. If you would like to deploy your creation publicly to share with others, you can follow [these steps](deployment_steps.md).
