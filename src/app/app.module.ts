@@ -24,7 +24,7 @@ import { WorkbooksComponent } from './workbooks/workbooks.component';
     WorkbooksComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,

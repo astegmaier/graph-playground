@@ -8,7 +8,7 @@ import { GraphService } from '../services/graph.service';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  constructor(private graphSdkService: GraphSdkService, private graphService: GraphService) { }
+  constructor(private graphSdkService: GraphSdkService, private graphService: GraphService, private authService: AuthService) { }
 
   callGraphWithGraphClient() {
     this.graphSdkService.client
@@ -23,6 +23,10 @@ export class HomeComponent {
       .subscribe((user) => {
         console.log(user);
       })
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 
 }

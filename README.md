@@ -1,6 +1,7 @@
 # Microsoft Graph Playground
 
-You can use this app as a way to experiment with the [Microsoft Graph API](https://developer.microsoft.com/graph). It is based on the [Angular + ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular) Template, it uses [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) to authenticate against both consumer and business accounts.
+You can use this app to experiment with the [Microsoft Graph API](https://developer.microsoft.com/graph). It is based on the [Angular CLI](https://cli.angular.io/), with the [Angular Material Table Component](https://material.angular.io/components/table/overview) and some structure stolen from the [Angular + ASP.NET Core Template](https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular). It uses [MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) to authenticate against both consumer and business accounts.
+
 
 There are two ways that it can make calls to the graph:
 
@@ -11,7 +12,7 @@ It also uses the [microsoft-graph-types](https://www.npmjs.com/package/@microsof
 
 ## Installation Instructions
 
-Prerequisites: [DOT.NET Core](https://www.microsoft.com/net), [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/en/), and the [Angular CLI](https://cli.angular.io/)
+Prerequisites: [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/en/) and the [Angular CLI](https://cli.angular.io/)
 
 1. Clone this repo:
     ```
@@ -28,9 +29,6 @@ Prerequisites: [DOT.NET Core](https://www.microsoft.com/net), [NPM](https://www.
 
 3. Go to the root folder and run:
     ```
-    dotnet run
-    ```
-    This will host the site using the ASP.NET Core runtime at https://localhost:5001. Alternatively, you can use the Angular CLI development server to host the site at http://localhost:4200 by navigating to the `ClientApp` folder and running:
-    ```
     ng serve
     ```
+    This will use the Angular CLI development server to host the site at http://localhost:4200.

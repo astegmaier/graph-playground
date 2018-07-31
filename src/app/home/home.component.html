@@ -1,0 +1,12 @@
+<h1>Graph Playround</h1>
+<p>You can use this app to experiment with the <a href="https://developer.microsoft.com/graph">Microsoft Graph API</a>. It is based on the <a href="https://cli.angular.io/">Angular CLI</a>, with the <a href="https://material.angular.io/components/table/overview">Angular Material Table Component</a> and some structure stolen from the <a href="https://docs.microsoft.com/en-us/aspnet/core/client-side/spa/angular">Angular + ASP.NET Core Template</a>. It uses <a href="https://github.com/AzureAD/microsoft-authentication-library-for-js">MSAL</a> to authenticate against both consumer and business accounts.</p>
+
+<p>There are two ways that it can make calls to the graph:</p>
+<ol>
+  <li>Through the <a href="https://github.com/microsoftgraph/msgraph-sdk-javascript">Graph SDK</a> (see services/graph-sdk.service.ts in the source code). </li>
+  <p *ngIf="isLoggedIn()"><button (click)='callGraphWithGraphClient()'>Click to make a simple Graph SDK Call and log results to the console.</button></p>
+  <li>Through the <a href="https://angular.io/guide/http">angular http client</a> (see services/graph.service.ts in the source code).</li>
+  <p *ngIf="isLoggedIn()"><button (click)='callGraphWithHttpClient()'>Click to make a simple call to the graph with the builtin Angular HTTP client and log results to the console.</button></p>
+</ol>
+
+It also uses the <a href="https://www.npmjs.com/package/@microsoft/microsoft-graph-types">microsoft-graph-types</a> library to provide strong typing for the objects returned from the graph.
