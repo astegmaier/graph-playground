@@ -22,7 +22,8 @@ export class AuthService {
     this.clientApplication = new Msal.UserAgentApplication(
       this.clientId,
       null,
-      this.authCallback
+      this.authCallback,
+      { redirectUri: window.location.protocol + '//' + window.location.host}
     );
    }
 
