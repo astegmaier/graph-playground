@@ -15,7 +15,7 @@ It also uses the [microsoft-graph-types](https://www.npmjs.com/package/@microsof
 
 ## Installation Instructions
 
-Prerequisites: [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/en/) and the [Angular CLI](https://cli.angular.io/)
+Prerequisites: [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/en/), the [Angular CLI](https://cli.angular.io/), and a [git client](https://desktop.github.com/).
 
 1. Clone this repo:
     ```
@@ -30,10 +30,9 @@ Prerequisites: [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.co
     npm install
     ```
 
-3. Go to the root folder and run:
+3. Now, you can build and host the app with the Angular CLI development server at http://localhost:4200 by running:
     ```
     ng serve
     ```
-    This will use the Angular CLI development server to host the site at http://localhost:4200.
 
 This will allow you to tweak the app locally and experiment. If you would like to deploy your creation publicly to share with others, you can follow [these steps](deployment_steps.md).
