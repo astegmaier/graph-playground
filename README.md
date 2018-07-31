@@ -30,5 +30,7 @@ Prerequisites: [DOT.NET Core](https://www.microsoft.com/net), [NPM](https://www.
     ```
     dotnet run
     ```
-
-Note: you'll need to run the app from https://localhost:5001/ (for dotnet) or http://localhost:4200 (for the angular CLI development server) in order to log in correctly.
+    This will host the site using the ASP.NET Core runtime at https://localhost:5001. Alternatively, you can use the Angular CLI development server to host the site at http://localhost:4200 by navigating to the `ClientApp` folder and running:
+    ```
+    ng serve
+    ```
