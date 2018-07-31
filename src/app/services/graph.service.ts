@@ -57,9 +57,9 @@ export class GraphService {
     .pipe(
       retry(3),
       catchError(this.handleError),
-      map(response => 
+      map(response =>
         response.value
-          .filter(item => item.file.mimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+          .filter(item => item.name && item.name.substr(item.name.length - 4, item.name.length) === 'xlsx')
           .sort((a, b) => {
             return new Date(b.lastModifiedDateTime).getTime() - new Date(a.lastModifiedDateTime).getTime() 
           })
