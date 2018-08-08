@@ -9,9 +9,7 @@ import { AuthService } from '../services/auth.service';
 export class NavMenuComponent {
   isExpanded = false;
 
-  constructor(private authService: AuthService) { 
-
-  }
+  constructor(private authService: AuthService) { }
 
   collapse() {
     this.isExpanded = false;

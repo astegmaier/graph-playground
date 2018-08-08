@@ -1,7 +1,7 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { AuthService } from "../services/auth.service";
-import { Observable, from } from "rxjs";
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Observable, from } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 @Injectable()

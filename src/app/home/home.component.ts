@@ -15,14 +15,14 @@ export class HomeComponent {
       .api('/me')
       .get((err, res) => {
         console.log(res);
-      })
+      });
   }
 
   callGraphWithHttpClient() {
     this.graphService.getCurrentUser()
       .subscribe((user) => {
         console.log(user);
-      })
+      });
   }
 
   isLoggedIn() {

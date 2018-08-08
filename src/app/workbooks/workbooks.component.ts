@@ -9,8 +9,8 @@ import { GraphService } from '../services/graph.service';
 })
 export class WorkbooksComponent {
   public driveItems: DriveItem[];
-  public columnsToDisplay = ['createdBy','createdDate','lastModifiedDateTime','fileName'];
-  constructor( private graphService: GraphService) { 
+  public columnsToDisplay = ['createdBy', 'createdDate', 'lastModifiedDateTime', 'fileName'];
+  constructor( private graphService: GraphService) {
     this.graphService.getRecentWorkbooks().subscribe(driveItems => this.driveItems = driveItems);
   }
 

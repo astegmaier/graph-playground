@@ -4,10 +4,11 @@ import { User, Contact, Message, DriveItem } from '@microsoft/microsoft-graph-ty
 import { throwError } from 'rxjs';
 import { catchError, retry, map } from 'rxjs/operators';
 
+// tslint:disable-next-line:class-name
 interface oDataResponse<T> {
-  '@odata.context': string,
-  '@odata.nextLink': string,
-  value: T
+  '@odata.context': string;
+  '@odata.nextLink': string;
+  value: T;
 }
 
 @Injectable({
@@ -26,7 +27,7 @@ export class GraphService {
   }
 
   getContacts(top?: number) {
-    let url = `${this.base_url}/me/contacts`
+    let url = `${this.base_url}/me/contacts`;
     if (top) {
       url = url + `?$top=${top}`;
     }
@@ -39,7 +40,7 @@ export class GraphService {
   }
 
   getMessages(top?: number) {
-    let url = `${this.base_url}/me/messages`
+    let url = `${this.base_url}/me/messages`;
     if (top) {
       url = url + `?$top=${top}`;
     }
@@ -52,7 +53,7 @@ export class GraphService {
   }
 
   getRecentWorkbooks() {
-    let url = `${this.base_url}/me/drive/recent`
+    const url = `${this.base_url}/me/drive/recent`;
     return this.http.get<oDataResponse<DriveItem[]>>(url)
     .pipe(
       retry(3),
@@ -61,7 +62,7 @@ export class GraphService {
         response.value
           .filter(item => item.name && item.name.substr(item.name.length - 4, item.name.length) === 'xlsx')
           .sort((a, b) => {
-            return new Date(b.lastModifiedDateTime).getTime() - new Date(a.lastModifiedDateTime).getTime() 
+            return new Date(b.lastModifiedDateTime).getTime() - new Date(a.lastModifiedDateTime).getTime();
           })
       )
     );
@@ -81,5 +82,5 @@ export class GraphService {
     // return an observable with a user-facing error message
     return throwError(
       'Something bad happened; please try again later.');
-  };
+  }
 }

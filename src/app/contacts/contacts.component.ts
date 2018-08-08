@@ -8,8 +8,8 @@ import { GraphService } from '../services/graph.service';
 })
 export class ContactsComponent {
   public contacts: Contact[];
-  public columnsToDisplay = ['givenName','surname','company','email'];
-  constructor( private graphService: GraphService) { 
+  public columnsToDisplay = ['givenName', 'surname', 'company', 'email'];
+  constructor( private graphService: GraphService) {
     this.graphService.getContacts(10).subscribe(contacts => this.contacts = contacts);
   }
   combineEmail(emailAddresses: EmailAddress[]): string {
